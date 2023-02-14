@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 texture/annotations.png
 output/annotations.glb
+test_data/AC20-FZK-Haus.ifc
