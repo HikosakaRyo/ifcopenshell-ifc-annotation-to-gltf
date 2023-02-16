@@ -142,7 +142,6 @@ def create_annotation_faces(annotations: list) -> AnnotationFaces:
     return AnnotationFaces(vertices, normals, faces)
 
 # 動作確認：
-# あらかじめjson配下にFMEから出力したannotations.jsonを配置してください。
 ifc_path = "./test_data/AC20-FZK-Haus.ifc"
 
 ## ここは実在するフォントを選ぶ
@@ -152,8 +151,10 @@ image_size = 512
 output_path = "output/annotations.glb"
 os.makedirs("output", exist_ok=True)
 
-# 表示位置がずれてるIfcAnnotationの情報をIfcOpenShellでダンプしてみる
+# モデルの読み込み
 model = ifcopenshell.open(ifc_path)
+
+# ifcAnnotationTextの情報を抽出
 annotation_texts = collect_ifc_annotation_text(model)
 
 # 板ポリゴン生成
